@@ -1,0 +1,78 @@
+<!doctype html>
+{% load staticfiles %}
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>HamroFare</title>
+        <link rel="icon" href="{% static 'main/pix/logo.png' %}">
+        <!-- Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+
+        <!-- Styles -->
+        <link rel="stylesheet" href="{% static 'main/css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'main/css/admin-layout.css' %}">
+        <link rel="stylesheet" href="{% static 'main/css/floating-labels.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'main/css/index.css' %}">
+    </head>
+    <body>
+        <nav id="header">
+            <div class="logo">
+                <a href="#"><img src="{% static 'main/pix/logo.png' %}" alt="logo" id="logo"></a>
+            </div>
+            <div id="banner">
+                Hamro<font id="bannerTitle">Fare</font>
+            </div>
+            <ul>
+                <a href="#"><li>LOGOUT</li></a>
+            </ul>
+        </nav>
+
+    <div class="container-fluid" id="wrapper">
+        <div class="jumbotron" align="center">
+            <button class="btn btn-lg btn-outline-secondary" onclick="dispUserDetail()">User Detail</button>
+            <button class="btn btn-lg btn-outline-secondary" onclick="dispCardReq()">Card Request</button>
+        </div>
+    </div> 
+    <div id = "userDetail">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>  
+    </div>
+    <div id = "cardReq">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </div>    
+
+    <script type="text/javascript">
+    function dispUserDetail()
+    {
+        userDetail=document.getElementById('userDetail');
+        cardReq=document.getElementById('cardReq');
+
+        userDetail.style.display = "block";
+        cardReq.style.display = "none";
+    }
+    function dispCardReq()
+ {
+        userDetail=document.getElementById('userDetail');
+        cardReq=document.getElementById('cardReq');
+
+        userDetail.style.display = "none";
+        cardReq.style.display = "block";
+    }
+</script>

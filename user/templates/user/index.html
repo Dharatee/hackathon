@@ -1,0 +1,111 @@
+<!doctype html>
+{% load staticfiles %}
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>HamroFare</title>
+        <link rel="icon" href="{% static 'main/pix/logo.png' %}">
+        <!-- Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+
+        <!-- Styles -->
+        <link rel="stylesheet" href="{% static 'main/css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'main/css/admin-layout.css' %}">
+        <link rel="stylesheet" href="{% static 'main/css/floating-labels.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'main/css/index.css' %}">
+        
+    </head>
+    <body>
+        <nav id="header">
+            <div class="logo">
+                <a href="#"><img src="{% static 'main/pix/logo.png' %}" alt="logo" id="logo"></a>
+            </div>
+            <div id="banner">
+                Hamro<font id="bannerTitle">Fare</font>
+            </div>
+            <ul>
+                <a href="#"><li>LOGOUT</li></a>
+            </ul>
+        </nav>
+
+        <!-- body -->
+        <div class="container-fluid" id="wrapper">
+        <div class="jumbotron" align="center">
+            <div class="alert alert-success"><h1>Your Travel Partner</h1></div>
+            <button class="btn btn-lg btn-outline-secondary" onclick="dispTransaction()">Transaction</button>
+            <button class="btn btn-lg btn-outline-secondary" onclick="dispCard()">Card Status</button>
+            <button class="btn btn-lg btn-outline-secondary" onclick="dispTopUP()">Balance TopUp</button>
+            <div id="transaction">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi esse odit rerum. Ab aliquid, aut ea earum eius error et excepturi harum molestiae nisi officiis porro quia, reiciendis rem sit!
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab alias at, ea eius et harum id ipsum magni modi mollitia necessitatibus nihil nulla quae ratione reprehenderit tempore, ullam vero! Fugit.
+                <br>
+                transactions
+            </div>
+            <div id="cardStatus">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi esse odit rerum. Ab aliquid, aut ea earum eius error et excepturi harum molestiae nisi officiis porro quia, reiciendis rem sit!
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab alias at, ea eius et harum id ipsum magni modi mollitia necessitatibus nihil nulla quae ratione reprehenderit tempore, ullam vero! Fugit.
+                <br>
+                Cards
+            </div>
+            <div id="balanceTopUp">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi esse odit rerum. Ab aliquid, aut ea earum eius error et excepturi harum molestiae nisi officiis porro quia, reiciendis rem sit!
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab alias at, ea eius et harum id ipsum magni modi mollitia necessitatibus nihil nulla quae ratione reprehenderit tempore, ullam vero! Fugit.
+                <br>
+                balance top up
+            </div>
+
+        </div>
+        </div>
+
+        <!-- body end-->
+        <div id="goUp">
+            <a href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'smooth');">Up</a>
+        </div>
+        <footer>
+            &copy; 2019 Copyright The Invictus Code
+            <br>
+            theinvictuscode@gmail.com
+            <br>
+            KTM, Nepal
+        </footer>
+    </body>
+</html>
+<!-- scripts -->
+<script src="{% static 'main/js/layout.js' %}"></script>
+<script src="{% static 'main/js/validate.js' %}"></script>
+<script type="text/javascript">
+    function dispTransaction()
+    {
+        transaction=document.getElementById('transaction');
+        card=document.getElementById('cardStatus');
+        balance=document.getElementById('balanceTopUp');
+
+        transaction.style.display = "block";
+        card.style.display = "none";
+        balance.style.display = "none";
+    }
+    function dispCard()
+    {
+        transaction=document.getElementById('transaction');
+        card=document.getElementById('cardStatus');
+        balance=document.getElementById('balanceTopUp');
+
+        transaction.style.display = "none";
+        card.style.display = "block";
+        balance.style.display = "none";
+    }
+    function dispTopUP()
+    {
+        transaction=document.getElementById('transaction');
+        card=document.getElementById('cardStatus');
+        balance=document.getElementById('balanceTopUp');
+
+        transaction.style.display = "none";
+        card.style.display = "none";
+        balance.style.display = "block";
+    }
+</script>
+<!-- @yield('script') -->

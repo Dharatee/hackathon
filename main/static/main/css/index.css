@@ -1,0 +1,30 @@
+#SignUp
+{
+    display: none;
+}
+#LogIn
+{
+    display: block;
+}
+
+#cardStatus
+{
+    display: none;
+}
+#balanceTopUp
+{
+    display: none;
+}
+#transaction
+{
+    display: block;
+}
+
+#cardReq
+{
+    display: none;
+}
+#userDetail
+{
+    display: block;
+}

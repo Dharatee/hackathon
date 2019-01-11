@@ -1,0 +1,146 @@
+<!doctype html>
+{% load staticfiles %}
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>HamroFare</title>
+        <link rel="icon" href="{% static 'main/pix/logo.png' %}">
+        <!-- Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+
+        <!-- Styles -->
+        <link rel="stylesheet" href="{% static 'main/css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'main/css/layout.css' %}">
+        <link rel="stylesheet" href="{% static 'main/css/floating-labels.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'main/css/index.css' %}">
+        
+    </head>
+    <body>
+        <nav id="header">
+            <div class="logo">
+                <a href="#"><img src="{% static 'main/pix/logo.png' %}" alt="logo" id="logo"></a>
+            </div>
+            <div id="banner">
+                Hamro<font id="bannerTitle">Fare</font>
+            </div>
+
+        </nav>
+
+        <!-- body -->
+        <div class="container-fluid" id="wrapper">
+        <div class="jumbotron" align="center">
+            <div class="alert alert-success"><h1>Your Travel Partner</h1></div>
+            <button class="btn btn-lg btn-outline-secondary" onclick="dispLogin()">LogIn</button>
+            <button class="btn btn-lg btn-outline-secondary" onclick="dispSignup()">SignUp</button>
+            <div id="LogIn">
+                <form class="form" method="post" action="" onsubmit="return checklogin()">
+                  <div class="form-label-group">
+                    <input type="text" id="userName" name="userName" class="form-control" placeholder="Username" autofocus>
+                    <label for="userName">Username</label>
+                  </div>
+                  <div class="form-label-group">
+                    <input type="password" id="password" name="password" class="form-control" placeholder="Password" autofocus>
+                    <label for="password">Password</label>
+                  </div>
+                  <div class="form-label-group">
+                    <select name="accountType" id="accountType" class="form-control">
+                      <option value="0">Select Account Type</option>
+                      <option value="user">User</option>
+                      <option value="company">Company</option>
+                    </select>
+                  </div>
+                  <input class="btn btn-lg btn-primary btn-block" type="submit" value="LogIn">
+                </form>
+            </div>
+            <div id="SignUp">
+                <form class="form" method="post" action="" onsubmit="return checksignupuser()">
+                    <div class="form-label-group">
+                        <input type="text" id="name" name="name" class="form-control" placeholder="Name" autofocus>
+                        <label for="name">Name</label>
+                    </div>
+                    <div class="form-label-group">
+                        <input type="email" id="email" name="email" class="form-control" placeholder="Email address" autofocus>
+                        <label for="email">Email address</label>
+                    </div>
+                    <div class="form-label-group">
+                        <input type="text" id="contact" name="contact" class="form-control" placeholder="Contact" autofocus>
+                        <label for="contact">Contact</label>
+                    </div>
+                    <div class="form-label-group">
+                        <input type="text" id="address" name="address" class="form-control" placeholder="Address" autofocus>
+                        <label for="address">Address</label>
+                    </div>                 
+                    <div class="form-label-group">
+                        <select name="bloodGroup" id="bloodGroup" class="form-control">
+                            <option value="0">Select blood group</option>
+                            <option value="A+">A+</option>
+                            <option value="A-">A-</option>
+                            <option value="B+">B+</option>
+                            <option value="B-">B-</option>
+                            <option value="AB+">AB+</option>
+                            <option value="AB-">AB-</option>
+                            <option value="O+">O+</option>
+                            <option value="O-">O-</option>
+                        </select>
+                    </div>
+                    <div class="form-label-group">
+                        <select name="userType" id="userType" class="form-control">
+                            <option value="0">Select User Type</option>
+                            <option value="General">General</option>
+                            <option value="Student">Student</option>
+                            <option value="Elderly">Elderly</option>
+                            <option value="Differently Able">Differently Able</option>
+                        </select>
+                    </div>
+                    <div class="form-label-group">
+                        <input type="password" id="password1" name="password1" class="form-control" placeholder="Password" autofocus>
+                        <label for="password1">Password</label>
+                    </div>
+                    <div class="form-label-group">
+                        <input type="password" id="password2" name="password2" class="form-control" placeholder="Re-enter-Password" autofocus>
+                        <label for="password2">Re-enter-Password</label>
+                    </div>
+                    <input class="btn btn-lg btn-primary btn-block" type="submit" value="SignUp">
+                </form>
+            </div>
+        </div>
+        </div>
+
+        <!-- body end-->
+        <div id="goUp">
+            <a href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'smooth');">Up</a>
+        </div>
+        <footer>
+            &copy; 2019 Copyright The Invictus Code
+            <br>
+            theinvictuscode@gmail.com
+            <br>
+            KTM, Nepal
+        </footer>
+    </body>
+</html>
+<!-- scripts -->
+<script src="{% static 'main/js/layout.js' %}"></script>
+<script src="{% static 'main/js/validate.js' %}"></script>
+<script type="text/javascript">
+    function dispLogin()
+    {
+        SignUp=document.getElementById('SignUp');
+        LogIn=document.getElementById('LogIn');
+
+        LogIn.style.display = "block";
+        SignUp.style.display = "none";
+    }
+    function dispSignup()
+    {
+        SignUp=document.getElementById('SignUp');
+        LogIn=document.getElementById('LogIn');
+
+        LogIn.style.display = "none";
+        SignUp.style.display = "block";
+    }
+</script>
+<!-- @yield('script') -->
