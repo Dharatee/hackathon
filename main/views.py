@@ -7,10 +7,10 @@ import random
 
 
 def index(request):
-    if request.session['user'] != ''  and request.session['accountType'] == 'user':
+    if 'user' in request.session and 'acountType' in request.session == 'user':
         user = User.objects.get(name=request.session['user'])
         return render(request, 'user/index.html', {'user': user})
-    elif request.session['user'] != '' and request.session['accountType'] == 'company':
+    elif 'user' in request.session and 'accountType' in request.session == 'company':
         user = Company.objects.get(username=request.session['user'])
         return render(request, 'company/index.html', {'user': user})
     return render(request, 'main/index.html')
@@ -52,9 +52,9 @@ def login(request):
                 context = {'err_msg': err_msg}
                 return render(request, 'main/index.html', context)
             user = User.objects.get(name=name, password=password)
+
             request.session['user'] = name
             request.session['accountType'] = accountType
-            request.session['id'] = user.id
             return render(request, 'user/index.html', {'user': user})
         else:
             user = Company.objects.filter(username=name, password=password)
@@ -63,7 +63,7 @@ def login(request):
                 context = {'err_msg': err_msg}
                 return render(request, 'main/index.html', context)
             user = Company.objects.get(username=name, password=password)
+
             request.session['user'] = name
             request.session['accountType'] = accountType
-            request.session['id'] = user.id
             return render(request, 'company/index.html', {'user': user})
