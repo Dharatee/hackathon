@@ -6,7 +6,7 @@ window.addEventListener("scroll",function() {
     const bannerTitle = document.getElementById('bannerTitle');
     const goUp = document.getElementById('goUp');
 
-    if(window.pageYOffset>0){
+    if(window.pageYOffset>50){
         header.style.height="80px";
         logo.style.height="60px";
         header.style.background="tomato";

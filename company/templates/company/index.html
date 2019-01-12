@@ -32,33 +32,48 @@
 
     <div class="container-fluid" id="wrapper">
         <div class="jumbotron" align="center">
+            <div class="alert alert-success"><h1>Your Travel Partner</h1></div>
             <button class="btn btn-lg btn-outline-secondary" onclick="dispUserDetail()">User Detail</button>
-            <button class="btn btn-lg btn-outline-secondary" onclick="dispCardReq()">Card Request</button>
-        </div>
-    </div> 
-    <div id = "userDetail">
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>  
+            <button class="btn btn-lg btn-outline-secondary" onclick="dispCardReq()">Card Request</button> 
+			<div id = "userDetail">
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>  
+			</div> 
+			<div id = "cardReq">
+			        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+			        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+			        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+			        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+			        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+			</div> 
+		</div>   
+	</div>
+	        <!-- body end-->
+	<div id="goUp">
+            <a href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'smooth');">Up</a>
     </div>
-    <div id = "cardReq">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-    </div>    
-
-    <script type="text/javascript">
+        <footer>
+            &copy; 2019 Copyright The Invictus Code
+            <br>
+            theinvictuscode@gmail.com
+            <br>
+            KTM, Nepal
+        </footer>
+     </body>
+</html>
+<!-- scripts -->
+<script src="{% static 'main/js/layout.js' %}"></script>       
+<script type="text/javascript">
     function dispUserDetail()
     {
         userDetail=document.getElementById('userDetail');

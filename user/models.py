@@ -5,7 +5,7 @@ class User(models.Model):
     email = models.CharField(max_length = 100)
     contact = models.BigIntegerField()
     address = models.CharField(max_length = 50)
-    card_key = models.BigIntegerField()
+    card_key = models.CharField(max_length = 16)
     blood_group = models.CharField(max_length = 3)
     user_type = models.CharField(max_length = 20)
     register_date = models.DateField()

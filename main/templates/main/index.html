@@ -36,7 +36,8 @@
             <button class="btn btn-lg btn-outline-secondary" onclick="dispLogin()">LogIn</button>
             <button class="btn btn-lg btn-outline-secondary" onclick="dispSignup()">SignUp</button>
             <div id="LogIn">
-                <form class="form" method="post" action="" onsubmit="return checklogin()">
+                <form class="form" method="post" action="{% url 'main:login' %}" onsubmit="return checklogin()">
+                    {% csrf_token %}
                   <div class="form-label-group">
                     <input type="text" id="userName" name="userName" class="form-control" placeholder="Username" autofocus>
                     <label for="userName">Username</label>
@@ -56,7 +57,8 @@
                 </form>
             </div>
             <div id="SignUp">
-                <form class="form" method="post" action="" onsubmit="return checksignupuser()">
+                <form class="form" method="post" action="{% url 'main:signup' %}" onsubmit="return checksignupuser()">
+                    {% csrf_token %}
                     <div class="form-label-group">
                         <input type="text" id="name" name="name" class="form-control" placeholder="Name" autofocus>
                         <label for="name">Name</label>
