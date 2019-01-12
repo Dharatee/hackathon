@@ -10,8 +10,7 @@ def index(request):
     elif 'user' in request.session and 'acountType' in request.session == 'company':
         user = Company.objects.get(username=request.session['user'])
         return render(request, 'company/index.html', {'user': user})
-    else:
-        return redirect('main:index')
+    return redirect('main:index')
 
 
 

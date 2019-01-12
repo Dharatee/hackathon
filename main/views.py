@@ -41,11 +41,12 @@ def signup(request):
 
 def login(request):
     if request.method == 'POST':
-        name = request.POST['userName']
-        password = request.POST['password']
         accountType = request.POST['accountType']
 
         if accountType == 'user':
+            name = request.POST['userName']
+            password = request.POST['password']
+            accountType = request.POST['accountType']
             user = User.objects.filter(name=name, password=password)
             if not user:
                 err_msg = "Login Invalid"
@@ -55,8 +56,13 @@ def login(request):
 
             request.session['user'] = name
             request.session['accountType'] = accountType
+            print(request.session['user'])
+            print(request.session['accountType'])
             return render(request, 'user/index.html', {'user': user})
         else:
+            name = request.POST['userName']
+            password = request.POST['password']
+            accountType = request.POST['accountType']
             user = Company.objects.filter(username=name, password=password)
             if not user:
                 err_msg = "Login Invalid"
@@ -66,4 +72,6 @@ def login(request):
 
             request.session['user'] = name
             request.session['accountType'] = accountType
+            print(request.session['user'])
+            print(request.session['accountType'])
             return render(request, 'company/index.html', {'user': user})

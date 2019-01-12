@@ -36,25 +36,40 @@
             <button class="btn btn-lg btn-outline-secondary" onclick="dispUserDetail()">User Detail</button>
             <button class="btn btn-lg btn-outline-secondary" onclick="dispVehicleInfo()">Vehicle Info</button>
 			<div id = "userDetail">
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>  
+                <br>
+				<table class="table table-striped table-hover">
+                    <tr>
+                        <th>S.N</th>
+                        <th>Company Owner</th>
+                        <th>No. of vehicle</th>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>{{ user.company_name }}</td>
+                        <td>{{ user.bus_no }}</td>           
+                    </tr>
+                </table>
 			</div> 
 			<div id = "vehicleInfo">
-			        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-			        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-			        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-			        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-			        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-			        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <br>
+                <table class="table table-striped table-hover">
+                    <tr>
+                        <th>S.N</th>
+                        <th>Owner</th>
+                        <th>Vehicle No.</th>
+                        <th>Entry Device id</th>
+                        <th>Exit Device id</th>
+                    </tr>
+			        {% for vehicle in user.device_set.all %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{ vehicle.owner }}</td>
+                        <td>{{ vehicle.vehicle_no }}</td>           
+                        <td>{{ vehicle.enter_device_id }}</td>
+                        <td>{{ vehicle.exit_device_id }}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
 			</div> 
 		</div>   
 	</div>
@@ -83,9 +98,9 @@
         vehicleInfo.style.display = "none";
     }
     function dispVehicleInfo()
- {
+    {
         userDetail=document.getElementById('userDetail');
-        vehicleInfo=document.getElementById('dispVehicleInfo');
+        vehicleInfo=document.getElementById('vehicleInfo');
 
         userDetail.style.display = "none";
         vehicleInfo.style.display = "block";
