@@ -27,7 +27,7 @@
                 Hamro<font id="bannerTitle">Fare</font>
             </div>
             <ul>
-                <a href="#"><li>LOGOUT</li></a>
+                <a href="{% url 'user:logout' %}"><li>LOGOUT</li></a>
             </ul>
         </nav>
 
@@ -39,22 +39,56 @@
             <button class="btn btn-lg btn-outline-secondary" onclick="dispCard()">Card Status</button>
             <button class="btn btn-lg btn-outline-secondary" onclick="dispTopUP()">Balance TopUp</button>
             <div id="transaction">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi esse odit rerum. Ab aliquid, aut ea earum eius error et excepturi harum molestiae nisi officiis porro quia, reiciendis rem sit!
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab alias at, ea eius et harum id ipsum magni modi mollitia necessitatibus nihil nulla quae ratione reprehenderit tempore, ullam vero! Fugit.
                 <br>
-                transactions
+                <table class="table table-striped table-hover">
+                    <tr>
+                        <th>S.N</th>
+                        <th>From</th>
+                        <th>To</th>
+                        <th>Distance Travelled</th>
+                        <th>Fare</th>
+                        <th>Vehicle Id</th>
+                    </tr>
+                {% for transaction in user.transaction_set.all %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{ transaction.start}}</td>
+                        <td>{{ transaction.end}}</td>
+                        <td>{{ transaction.distance}}</td>
+                        <td>{{ transaction.fare}}</td>
+                        <td>{{ transaction.device_id}}</td>
+                    </tr>
+                {% endfor %}
+                </table>
             </div>
             <div id="cardStatus">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi esse odit rerum. Ab aliquid, aut ea earum eius error et excepturi harum molestiae nisi officiis porro quia, reiciendis rem sit!
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab alias at, ea eius et harum id ipsum magni modi mollitia necessitatibus nihil nulla quae ratione reprehenderit tempore, ullam vero! Fugit.
                 <br>
-                Cards
+                <table class="table table-striped table-hover">
+                    <tr>
+                        <th>S.N</th>
+                        <th>Card Type</th>
+                        <th>Created Date</th>
+                        <th>Expiry Date</th>
+                        <th>Balance</th>
+                    </tr>
+                {% for card in user.card_set.all %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{ card.card_type}}</td>
+                        <td>{{ card.created_date}}</td>
+                        <td>{{ card.expiry_date}}</td>
+                        <td>{{ card.balance}}</td>
+                    </tr>
+                {% endfor %}
+                </table>
             </div>
             <div id="balanceTopUp">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi esse odit rerum. Ab aliquid, aut ea earum eius error et excepturi harum molestiae nisi officiis porro quia, reiciendis rem sit!
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab alias at, ea eius et harum id ipsum magni modi mollitia necessitatibus nihil nulla quae ratione reprehenderit tempore, ullam vero! Fugit.
                 <br>
-                balance top up
+                <div class="alert alert-info">
+                    <h2>Hey! you can top up your balance from this section.</h2>
+                    <br>
+                    <h3>You will be notified when this feature will be featured....</h3>
+                </div>
             </div>
 
         </div>

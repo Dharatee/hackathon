@@ -1,6 +1,7 @@
 from django.db import models
 
 class User(models.Model):
+    id = models.AutoField(primary_key=True)
     name = models.CharField(max_length = 50)
     email = models.CharField(max_length = 100)
     contact = models.BigIntegerField()
@@ -23,14 +24,14 @@ class Transaction(models.Model):
     device_id = models.BigIntegerField()
 
     def __str__(self):
-        return self.card_key + ' - ' +self.device_id
+        return self.start
 
 class Card(models.Model):
     card_key = models.ForeignKey(User, on_delete=models.CASCADE)
     expiry_date = models.DateField()
     created_date = models.DateField()
-    Balance = models.PositiveIntegerField()
+    balance = models.PositiveIntegerField()
     card_type = models.CharField(max_length = 20)
 
     def __str__(self):
-        return self.card_key
+        return self.card_type

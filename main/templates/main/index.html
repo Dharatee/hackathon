@@ -26,13 +26,15 @@
             <div id="banner">
                 Hamro<font id="bannerTitle">Fare</font>
             </div>
-
         </nav>
 
         <!-- body -->
         <div class="container-fluid" id="wrapper">
         <div class="jumbotron" align="center">
-            <div class="alert alert-success"><h1>Your Travel Partner</h1></div>
+            <div class="alert alert-success"><h1>" Your Travel Partner! "</h1></div>
+            {% if err_msg %}
+                <div class="alert alert-warning"><h1>{{ err_msg }}</h1></div>
+            {% endif %}
             <button class="btn btn-lg btn-outline-secondary" onclick="dispLogin()">LogIn</button>
             <button class="btn btn-lg btn-outline-secondary" onclick="dispSignup()">SignUp</button>
             <div id="LogIn">

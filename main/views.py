@@ -1,11 +1,18 @@
 from typing import Dict, Any
 from django.shortcuts import render, get_object_or_404, redirect
-from user.models import User
-from company.models import Company
+from user.models import User, Transaction, Card
+from company.models import Company, Device
 from datetime import datetime
 import random
 
+
 def index(request):
+    if request.session['user'] != ''  and request.session['accountType'] == 'user':
+        user = User.objects.get(name=request.session['user'])
+        return render(request, 'user/index.html', {'user': user})
+    elif request.session['user'] != '' and request.session['accountType'] == 'company':
+        user = Company.objects.get(username=request.session['user'])
+        return render(request, 'company/index.html', {'user': user})
     return render(request, 'main/index.html')
 
 def signup(request):
@@ -39,14 +46,24 @@ def login(request):
         accountType = request.POST['accountType']
 
         if accountType == 'user':
-            data = User.objects.filter(name=name, password=password)
+            user = User.objects.filter(name=name, password=password)
+            if not user:
+                err_msg = "Login Invalid"
+                context = {'err_msg': err_msg}
+                return render(request, 'main/index.html', context)
+            user = User.objects.get(name=name, password=password)
             request.session['user'] = name
             request.session['accountType'] = accountType
-            # request.session['id'] = data.id
-            return render(request, 'user/index.html')
+            request.session['id'] = user.id
+            return render(request, 'user/index.html', {'user': user})
         else:
-            data = Company.objects.filter(username=name, password=password)
+            user = Company.objects.filter(username=name, password=password)
+            if not user:
+                err_msg = "Login Invalid"
+                context = {'err_msg': err_msg}
+                return render(request, 'main/index.html', context)
+            user = Company.objects.get(username=name, password=password)
             request.session['user'] = name
             request.session['accountType'] = accountType
-            # request.session['id'] = data.id
-            return render(request, 'company/index.html')
+            request.session['id'] = user.id
+            return render(request, 'company/index.html', {'user': user})
